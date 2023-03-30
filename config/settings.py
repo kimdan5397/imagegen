@@ -26,7 +26,7 @@ SECRET_KEY = secrets.token_urlsafe(32)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mydalle-381612.ue.r.appspot.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
