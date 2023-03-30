@@ -1,9 +1,13 @@
 runtime: python39
-entrypoint: gunicorn -b :$PORT imagegen.wsgi
+entrypoint: gunicorn -b :$PORT config.wsgi
 env_variables:
-  DJANGO_SETTINGS_MODULE: "myproject.settings"
+  DJANGO_SETTINGS_MODULE: "config.settings"
+  OPENAI_API_KEY: "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"
+
 handlers:
-  - url: /.*
-    secure: always
-    redirect_http_response_code: 301
-    script: auto
+- url: /static
+  static_dir: dalle_app/static
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto

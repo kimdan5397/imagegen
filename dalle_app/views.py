@@ -6,11 +6,13 @@ import openai
 import requests
 import os
 from dotenv import load_dotenv
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from .form import ContactForm
 
 load_dotenv()  
 
-# openai.api_key = os.environ.get('OPENAI_API_KEY')
-openai.api_key = "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"
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 #OpenAI API를 통한 이미지 생성 요청함수
 def generate_image(prompt):
@@ -48,3 +50,24 @@ def create_image(request):
 def progress(request):
     progress_value = 100
     return JsonResponse({"progress": progress_value})
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            send_mail(
+                subject,
+                f"Name: {name}\nEmail: {email}\n\n{message}",
+                email,
+                ['kimdan5397@gmail.com'], # 대상 이메일 주소 입력
+                fail_silently=False,
+            )
+            return redirect('contact_done')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})

@@ -1,3 +1,66 @@
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px #ccc;
+  color: #fff;
+}
+.navbar-brand img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;  
+  max-width: 80px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.03);
+}
+
+
+.navbar-brand:hover img {
+  filter: grayscale(0%);
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.jumbotron {
+  background-image: url('/static/image/painting.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+.jumbotron h1 {
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 2px 2px #ccc;
+  margin-top: 200px;
+}
+
+.jumbotron p {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 2px 2px #ccc;
+  margin-top: 20px;
+}
+
 .image-center {
     width: 100%;
     max-width: 1200px;
@@ -15,6 +78,11 @@
     padding-top: 10px;
     margin: 20px;
     float: left;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
 }
 
 @media (max-width: 992px) {
@@ -36,9 +104,9 @@
 footer {
     width: 100%;
     margin-top: 50px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(243, 243, 243);
 }
 
 .close-btn {

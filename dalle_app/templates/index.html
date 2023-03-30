@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Dan's AI Image Generator</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'image/logo_artforge.ico' %}">
+        <title>Artforge Online - Free Image Generator</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
@@ -14,24 +15,25 @@
     </head>
 <body>
     <nav class="row py-2 bg-light border-bottom">
-        <div class="col-md-3 d-flex flex-wrap justify-content-center">
+        <div class="col-md-4 fs-4 d-flex flex-wrap justify-content-center">
+            <a class="navbar-brand" href="/index/">
+                <img src="/static/image/logo_artforge.jpg" alt="Logo">ArtForge Online</a>
+        </div>
+        
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4 d-flex flex-wrap justify-content-center">
           <ul class="nav">
             <li class="nav-item"><a href="/index/" class="nav-link link-dark px-2 active">Home</a></li>
             <li class="nav-item"><a href="/about/" class="nav-link link-dark px-2">About</a></li>
-          </ul>
-        </div>
-      
-        <div class="col-md-6 fs-4 text-center">Dan's AI Image Generator</div>
-        <div class="col-md-3 d-flex flex-wrap justify-content-center">
-          <ul class="nav">
             <li class="nav-item"><a href="/contact/" class="nav-link link-dark px-2">Contact</a></li>
           </ul>
         </div>
     </nav>
     <header class="py-3 mb-2 border-bottom">
-        <div class="container justify-content-center", style="max-width:1200px">
+        <div class="container justify-content-center">
           </a>
-            <div class="row mb-3 align-items-center no-gutters">
+            <div class="row mb-3 align-items-center">
                 <form id="image-form" method="POST" action="">
                     {% csrf_token %}
                     <div class="col-auto">
@@ -40,16 +42,16 @@
                     </div>
                     <div class="col-auto">
                         <label for="prompt">Image Description</label>
-                        <input type="text" class="form-control" id="prompt" name="prompt" required placeholder="Please describe the image in detail you want">
+                        <input type="text" class="form-control" id="prompt" name="prompt" required placeholder="Please describe the image you want in detail">
                     </div>
             </div>
             <div class="row mb-3 align-items-center">
-                    <div class="col-2" style="padding-left:25px;">
-                        <button class="btn btn-secondary" type="submit">Generate Image</button>
+                    <div class="col-md-2" style="padding-left:25px;">
+                        <button class="btn btn-secondary" style="width:100%; padding:10px;" type="submit">Generate</button>
                     </div>
                 </form>
-                    <div class="col-10">
-                        <div class="progress" style="height: 38px;">
+                    <div class="col-md-10">
+                        <div class="progress" style="height: 38px; width:98%; padding:10px;">
                             <div class="progress-bar progress-bar-striped" id="progress-value" role="progressbar" aria-label="Default striped example" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>

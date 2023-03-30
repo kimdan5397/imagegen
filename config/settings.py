@@ -26,7 +26,7 @@ SECRET_KEY = secrets.token_urlsafe(32)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['artforge-382117.uc.r.appspot.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dalle_app'
+    'dalle_app',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+
+
+
+# 이메일 서버 관련 설정
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' # 이메일 서버 호스트 이름
+EMAIL_PORT = 587 # 이메일 서버 포트 번호
+EMAIL_USE_TLS = True # TLS 보안 사용 여부
+EMAIL_HOST_USER = 'kimdan5397@gmail.com' # 이메일 계정 사용자 이름
+EMAIL_HOST_PASSWORD = 'Br0therDan21!@' # 이메일 계정 비밀번호
